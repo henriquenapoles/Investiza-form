@@ -20,7 +20,7 @@ const AdminLogin = ({ onLogin }) => {
     setError('');
     
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/login`, {
+      const response = await fetch(`/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ const AdminLogin = ({ onLogin }) => {
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/admin/fundos`, {
+      const response = await fetch(`/api/admin/fundos`, {
         headers: {
           'X-API-Key': key,
         },
@@ -194,7 +194,7 @@ const AdminLogin = ({ onLogin }) => {
 
     try {
       // Atualizar webhook
-      const webhookResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/admin/webhook`, {
+      const webhookResponse = await fetch(`/api/admin/webhook`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-API-Key': adminKey },
         body: JSON.stringify({ webhook_url: webhookUrl })
@@ -227,7 +227,7 @@ const AdminLogin = ({ onLogin }) => {
   // Carregar webhook URL da configuração
   const loadWebhookConfig = async (key) => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/form/config`, {
+      const response = await fetch(`/api/form/config`, {
         headers: {
             'X-API-Key': key,
         },
@@ -249,7 +249,7 @@ const AdminLogin = ({ onLogin }) => {
       setLoading(true);
       console.log('Carregando logs de webhook...');
       
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/admin/webhook-logs`, {
+      const response = await fetch(`/api/admin/webhook-logs`, {
         headers: {
             'X-API-Key': adminKey,
             'Content-Type': 'application/json'
@@ -291,7 +291,7 @@ const AdminLogin = ({ onLogin }) => {
         criterios: tempCriterios
       };
 
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/admin/fundos/${selectedFundo}`, {
+      const response = await fetch(`/api/admin/fundos/${selectedFundo}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'X-API-Key': adminKey },
         body: JSON.stringify({ fundo: fundoAtualizado })
@@ -332,7 +332,7 @@ const AdminLogin = ({ onLogin }) => {
     };
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/admin/avaliar-elegibilidade`, {
+      const response = await fetch(`/api/admin/avaliar-elegibilidade`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dadosExemplo)
@@ -418,7 +418,7 @@ const AdminLogin = ({ onLogin }) => {
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/admin/fundos/${id}`, {
+      const response = await fetch(`/api/admin/fundos/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'X-API-Key': adminKey },
         body: JSON.stringify({ fundo: fundoData })
@@ -476,7 +476,7 @@ const AdminLogin = ({ onLogin }) => {
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/admin/fundos/`, {
+      const response = await fetch(`/api/admin/fundos/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-API-Key': adminKey },
         body: JSON.stringify({ 
@@ -816,7 +816,7 @@ const AdminLogin = ({ onLogin }) => {
               onClick={async () => {
                 try {
                   // Primeiro testar com o endpoint de debug
-                  const debugResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/debug/webhook-test`, {
+                  const debugResponse = await fetch(`/api/debug/webhook-test`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' }
                   });
@@ -1065,7 +1065,7 @@ const AdminLogin = ({ onLogin }) => {
               <Button
                 onClick={async () => {
                   try {
-                    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/debug/webhook-test`, {
+                    const response = await fetch(`/api/debug/webhook-test`, {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json', 'X-API-Key': adminKey }
                     });
@@ -1166,7 +1166,7 @@ const AdminLogin = ({ onLogin }) => {
                         }
 
                         try {
-                          const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/admin/fundos/${id}`, {
+                          const response = await fetch(`/api/admin/fundos/${id}`, {
                             method: 'DELETE',
                             headers: {
                                 'X-API-Key': adminKey,
@@ -1773,7 +1773,7 @@ const FormularioInvestiza = () => {
 
     const sendRequest = async (attempt = 1) => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/form/webhook`, {
+        const response = await fetch(`/api/form/webhook`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
