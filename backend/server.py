@@ -1232,6 +1232,29 @@ async def debug_webhook_test():
             "success": False
         }
 
+# Configuração para servir arquivos estáticos do frontend
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
+
+# Verificar se o diretório de arquivos estáticos existe
+static_dir = "/app/static"
+if os.path.exists(static_dir):
+    # Servir arquivos estáticos do frontend
+    app.mount("/static", StaticFiles(directory=static_dir), name="static")
+
+    # Servir o index.html na rota raiz
+    @app.get("/")
+    async def serve_frontend():
+        return FileResponse('/app/static/index.html')
+
+    # Catch-all para rotas do frontend (SPA)
+    @app.get("/{full_path:path}")
+    async def serve_spa(full_path: str):
+        if full_path.startswith("api/"):
+            raise HTTPException(status_code=404, detail="API endpoint not found")
+        return FileResponse('/app/static/index.html')
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=9999)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
