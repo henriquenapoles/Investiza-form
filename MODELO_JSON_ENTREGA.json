@@ -1,0 +1,127 @@
+{
+  "source": "investiza-form-gamificado-v2",
+  "idempotency_key": "f8d1bc59-0b4a-41c8-9862-16c1ba2fd3c0",
+  "timestamp": "2025-01-19T13:45:30.123Z",
+  "lead": {
+    "nome": "João Silva Santos",
+    "nome_empresa": "Inovação Tech Ltda",
+    "email": "joao.silva@inovacaotech.com.br",
+    "whatsapp": "+55 11 99988-7766",
+    "instagram": "@joaosilva_ceo",
+    "como_chegou": "google",
+    "indicacao_detalhes": "",
+    "situacao_empresa": "cnpj_antigo",
+    "faturamento_renda": "10-80",
+    "local": "Sudeste",
+    "municipio_estado": "São Paulo - SP",
+    "segmento": ["Tecnologia", "Servicos_Financeiros"],
+    "segmento_outros": "",
+    "razao": ["Ampliacao", "Modernizacao", "Safra_Agro"],
+    "razao_outros": "",
+    "garantia": ["Imovel", "Recebiveis", "Equipamento"],
+    "tipo_imovel": "Comercial"
+  },
+  "eligibility": {
+    "recomendados": ["ASIA", "SB", "SIFRA", "F3"],
+    "possiveis_atipicos": [
+      {
+        "id": "MULTIPLIQUE",
+        "motivo": "Faturamento no limite típico para o segmento; validar piso específico."
+      }
+    ],
+    "nao_elegiveis": [
+      {
+        "id": "BNB_FNE",
+        "motivo": "Fora da região de atuação do BNB — FNE."
+      },
+      {
+        "id": "BASA_FNO",
+        "motivo": "Fora da região de atuação do BASA — FNO."
+      },
+      {
+        "id": "FCO_BB",
+        "motivo": "Fora da região de atuação do FCO — via Banco do Brasil."
+      },
+      {
+        "id": "TCASH",
+        "motivo": "Fundo voltado para pessoa física; lead é empresa."
+      }
+    ]
+  },
+  "analise": {
+    "descritiva": "Análise baseada no perfil: cnpj_antigo, faturamento: 10-80 milhões. Localização: Sudeste. Segmentos: Tecnologia, Serviços Financeiros. Razões do projeto: Ampliação, Modernização, Safra/Agro. Garantias disponíveis: Imóvel comercial, Recebíveis, Equipamentos. Score final: 720/800 pontos (92.3% de aprovabilidade). Perfil empresarial consolidado com diversificação de garantias e propósitos claros de crescimento.",
+    "chance_emprestimo": "92.3",
+    "pontuacao": {
+      "scoreTotal": 720,
+      "scorePorcentagem": "90.0",
+      "descricao": "Score calculado com base em 8 critérios: situação empresarial (100/100), dados pessoais completos (100/100), canal de aquisição (100/100), faturamento adequado (70/100), localização estratégica (100/100), segmentos promissores (85/100), múltiplas razões (90/100), garantias robustas (75/100). Alta probabilidade de aprovação devido ao perfil consolidado e diversificação de garantias."
+    }
+  },
+  "fundos_alcancaveis": [
+    {
+      "id": "ASIA",
+      "nome": "Asia",
+      "motivo": "Faturamento e garantias (imóvel + recebíveis) adequadas ao perfil do fundo."
+    },
+    {
+      "id": "SB",
+      "nome": "SB Crédito",
+      "motivo": "Empresa consolidada com garantias imobiliárias e de recebíveis."
+    },
+    {
+      "id": "SIFRA",
+      "nome": "Sifra",
+      "motivo": "Perfil adequado para operações de médio porte com múltiplas garantias."
+    },
+    {
+      "id": "F3",
+      "nome": "3F Fundo",
+      "motivo": "Segmento tecnologia + garantias compatíveis com política do fundo."
+    },
+    {
+      "id": "BNDES",
+      "nome": "BNDES (equipamentos)",
+      "motivo": "Possui CNPJ e oferece equipamentos como garantia para modernização."
+    }
+  ],
+  "fundos_nao_alcancaveis": [
+    {
+      "id": "BNB_FNE",
+      "nome": "BNB — FNE",
+      "motivo": "Região Sudeste fora da área de atuação (Nordeste/Minas)."
+    },
+    {
+      "id": "BASA_FNO",
+      "nome": "BASA — FNO",
+      "motivo": "Região Sudeste fora da área de atuação (Norte)."
+    },
+    {
+      "id": "FCO_BB",
+      "nome": "FCO — via Banco do Brasil",
+      "motivo": "Região Sudeste fora da área de atuação (Centro-Oeste)."
+    },
+    {
+      "id": "TCASH",
+      "nome": "TCash",
+      "motivo": "Fundo para pessoa física; lead é empresa."
+    },
+    {
+      "id": "CASHME",
+      "nome": "CashMe",
+      "motivo": "Fundo para pessoa física; lead é empresa."
+    },
+    {
+      "id": "GALERIA",
+      "nome": "Galeria",
+      "motivo": "Fundo para pessoa física; lead é empresa."
+    }
+  ],
+  "score_gamificado": 720,
+  "meta": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "utm_source": "google",
+    "utm_medium": "cpc",
+    "utm_campaign": "financiamento_empresas_sp",
+    "page_url": "https://seusite.com/qualificacao-investiza?utm_source=google&utm_medium=cpc&utm_campaign=financiamento_empresas_sp"
+  }
+}

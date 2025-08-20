@@ -1,0 +1,756 @@
+{
+  "fundos": {
+    "BNB_FNE": {
+      "nome": "BNB — FNE",
+      "tipo": "constitucional",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo",
+          "cnpj_novo",
+          "implantacao",
+          "pessoa_fisica",
+          "recuperacao_judicial_homologada",
+          "recuperacao_judicial_nao_homologada"
+        ],
+        "faturamento_renda": [
+          "todos"
+        ],
+        "regioes": [
+          "Nordeste"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "todos"
+        ],
+        "garantias": [
+          "todos"
+        ]
+      }
+    },
+    "BASA_FNO": {
+      "nome": "BASA — FNO",
+      "tipo": "constitucional",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo",
+          "cnpj_novo",
+          "implantacao",
+          "pessoa_fisica",
+          "recuperacao_judicial_homologada",
+          "recuperacao_judicial_nao_homologada"
+        ],
+        "faturamento_renda": [
+          "todos"
+        ],
+        "regioes": [
+          "Norte"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "todos"
+        ],
+        "garantias": [
+          "todos"
+        ]
+      }
+    },
+    "FCO_BB": {
+      "nome": "FCO — via Banco do Brasil",
+      "tipo": "constitucional",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo",
+          "cnpj_novo",
+          "implantacao",
+          "pessoa_fisica",
+          "recuperacao_judicial_homologada",
+          "recuperacao_judicial_nao_homologada"
+        ],
+        "faturamento_renda": [
+          "todos"
+        ],
+        "regioes": [
+          "Centro-Oeste"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "todos"
+        ],
+        "garantias": [
+          "todos"
+        ]
+      }
+    },
+    "BNDES": {
+      "nome": "BNDES (equipamentos)",
+      "tipo": "desenvolvimento",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo",
+          "cnpj_novo",
+          "implantacao"
+        ],
+        "faturamento_renda": [
+          "todos"
+        ],
+        "regioes": [
+          "todos"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "Modernizacao_Tecnologia",
+          "Financiamento_Ativo",
+          "Ampliacao"
+        ],
+        "garantias": [
+          "Equipamento"
+        ]
+      }
+    },
+    "ASIA": {
+      "nome": "Asia",
+      "tipo": "privado",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo"
+        ],
+        "faturamento_renda": [
+          "10-80",
+          ">80",
+          ">300"
+        ],
+        "regioes": [
+          "todos"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "Ampliacao",
+          "Giro",
+          "Financiamento_Ativo"
+        ],
+        "garantias": [
+          "Imovel",
+          "Recebiveis",
+          "Veiculo"
+        ],
+        "tipo_imovel": []
+      }
+    },
+    "SB": {
+      "nome": "SB Crédito",
+      "tipo": "privado",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo",
+          "cnpj_novo"
+        ],
+        "faturamento_renda": [
+          "10-80",
+          ">80",
+          ">300"
+        ],
+        "regioes": [
+          "todos"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "Ampliacao",
+          "Giro",
+          "Financiamento_Ativo"
+        ],
+        "garantias": [
+          "Imovel",
+          "Recebiveis"
+        ]
+      }
+    },
+    "SIFRA": {
+      "nome": "Sifra",
+      "tipo": "privado",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo",
+          "cnpj_novo"
+        ],
+        "faturamento_renda": [
+          "10-80",
+          ">80",
+          ">300"
+        ],
+        "regioes": [
+          "todos"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "Ampliacao",
+          "Giro",
+          "Financiamento_Ativo"
+        ],
+        "garantias": [
+          "Imovel",
+          "Recebiveis",
+          "Veiculo"
+        ]
+      }
+    },
+    "F3": {
+      "nome": "3F Fundo",
+      "tipo": "privado",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo",
+          "cnpj_novo"
+        ],
+        "faturamento_renda": [
+          "10-80",
+          ">80",
+          ">300"
+        ],
+        "regioes": [
+          "todos"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "Ampliacao",
+          "Giro",
+          "Financiamento_Ativo"
+        ],
+        "garantias": [
+          "Imovel",
+          "Recebiveis",
+          "Veiculo"
+        ]
+      }
+    },
+    "MULTIPLIQUE": {
+      "nome": "Multiplique",
+      "tipo": "privado",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo",
+          "cnpj_novo"
+        ],
+        "faturamento_renda": [
+          "10-80",
+          ">80",
+          ">300"
+        ],
+        "regioes": [
+          "todos"
+        ],
+        "segmentos": [
+          "Construtora",
+          "Industria_Atacado"
+        ],
+        "razoes": [
+          "Ampliacao",
+          "Giro",
+          "Financiamento_Ativo"
+        ],
+        "garantias": [
+          "todos"
+        ]
+      }
+    },
+    "SAFRA": {
+      "nome": "Safra",
+      "tipo": "privado",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo",
+          "cnpj_novo"
+        ],
+        "faturamento_renda": [
+          "10-80",
+          ">80",
+          ">300"
+        ],
+        "regioes": [
+          "todos"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "Ampliacao",
+          "Giro"
+        ],
+        "garantias": [
+          "Veiculo",
+          "Imovel",
+          "Recebiveis"
+        ]
+      }
+    },
+    "SOFISA": {
+      "nome": "Sofisa",
+      "tipo": "privado",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo",
+          "cnpj_novo"
+        ],
+        "faturamento_renda": [
+          "10-80",
+          ">80",
+          ">300"
+        ],
+        "regioes": [
+          "todos"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "Ampliacao",
+          "Giro"
+        ],
+        "garantias": [
+          "Veiculo",
+          "Imovel",
+          "Recebiveis"
+        ]
+      }
+    },
+    "DAICOVAL": {
+      "nome": "Daicoval",
+      "tipo": "privado",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo",
+          "cnpj_novo"
+        ],
+        "faturamento_renda": [
+          "10-80",
+          ">80",
+          ">300"
+        ],
+        "regioes": [
+          "todos"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "Ampliacao",
+          "Giro"
+        ],
+        "garantias": [
+          "Veiculo",
+          "Imovel",
+          "Recebiveis"
+        ]
+      }
+    },
+    "TCASH": {
+      "nome": "TCash",
+      "tipo": "pf",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "pessoa_fisica"
+        ],
+        "faturamento_renda": [
+          "todos"
+        ],
+        "regioes": [
+          "todos"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "todos"
+        ],
+        "garantias": [
+          "Imovel"
+        ],
+        "tipo_imovel": [
+          "Residencial"
+        ]
+      }
+    },
+    "CASHME": {
+      "nome": "CashMe",
+      "tipo": "pf",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "pessoa_fisica"
+        ],
+        "faturamento_renda": [
+          "todos"
+        ],
+        "regioes": [
+          "todos"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "todos"
+        ],
+        "garantias": [
+          "Imovel"
+        ],
+        "tipo_imovel": [
+          "Residencial"
+        ]
+      }
+    },
+    "GALERIA": {
+      "nome": "Galeria",
+      "tipo": "pf",
+      "ativo": true,
+      "criterios": {
+        "situacao_empresa": [
+          "pessoa_fisica"
+        ],
+        "faturamento_renda": [
+          "todos"
+        ],
+        "regioes": [
+          "todos"
+        ],
+        "segmentos": [
+          "todos"
+        ],
+        "razoes": [
+          "todos"
+        ],
+        "garantias": [
+          "Imovel"
+        ],
+        "tipo_imovel": [
+          "Residencial"
+        ]
+      }
+    },
+    "TEST_FUND": {
+      "nome": "Fundo de Teste",
+      "tipo": "privado",
+      "ativo": false,
+      "criterios": {
+        "situacao_empresa": [
+          "cnpj_antigo",
+          "cnpj_novo"
+        ],
+        "faturamento_renda": [
+          "10-80",
+          ">80"
+        ],
+        "regioes": [
+          "Sudeste",
+          "Sul"
+        ],
+        "segmentos": [
+          "Tecnologia",
+          "Servicos_Financeiros"
+        ],
+        "razoes": [
+          "Ampliacao",
+          "Giro"
+        ],
+        "garantias": [
+          "Imovel",
+          "Recebiveis"
+        ],
+        "tipo_imovel": []
+      }
+    }
+  },
+  "opcoes_formulario": {
+    "situacao_empresa": [
+      {
+        "value": "cnpj_antigo",
+        "label": "CNPJ há mais de 3 anos"
+      },
+      {
+        "value": "cnpj_novo",
+        "label": "CNPJ há menos de 3 anos"
+      },
+      {
+        "value": "implantacao",
+        "label": "Empresa em implantação"
+      },
+      {
+        "value": "pessoa_fisica",
+        "label": "Pessoa física"
+      },
+      {
+        "value": "recuperacao_judicial_homologada",
+        "label": "Recuperação Judicial - Homologada"
+      },
+      {
+        "value": "recuperacao_judicial_nao_homologada",
+        "label": "Recuperação Judicial - Não Homologada"
+      }
+    ],
+    "faturamento_renda": [
+      {
+        "value": "nao_tem",
+        "label": "Não tem faturamento/renda"
+      },
+      {
+        "value": "<10",
+        "label": "Até R$ 10 milhões"
+      },
+      {
+        "value": "10-80",
+        "label": "R$ 10 a R$ 80 milhões"
+      },
+      {
+        "value": ">80",
+        "label": "R$ 80 a R$ 300 milhões"
+      },
+      {
+        "value": ">300",
+        "label": "Acima de R$ 300 milhões"
+      },
+      {
+        "value": "ate_5k",
+        "label": "Até R$ 5.000 (PF)"
+      },
+      {
+        "value": "5k_15k",
+        "label": "R$ 5.000 a R$ 15.000 (PF)"
+      },
+      {
+        "value": "15k_50k",
+        "label": "R$ 15.000 a R$ 50.000 (PF)"
+      },
+      {
+        "value": "acima_50k",
+        "label": "Acima de R$ 50.000 (PF)"
+      }
+    ],
+    "regioes": [
+      {
+        "value": "Nordeste",
+        "label": "Nordeste"
+      },
+      {
+        "value": "Norte",
+        "label": "Norte"
+      },
+      {
+        "value": "Centro-Oeste",
+        "label": "Centro-Oeste"
+      },
+      {
+        "value": "Sudeste",
+        "label": "Sudeste"
+      },
+      {
+        "value": "Sul",
+        "label": "Sul"
+      }
+    ],
+    "segmentos": [
+      {
+        "value": "Agro",
+        "label": "Agronegócio"
+      },
+      {
+        "value": "Safra_Agricola",
+        "label": "Safra/Agrícola"
+      },
+      {
+        "value": "Industria_Atacado",
+        "label": "Indústria/Atacado"
+      },
+      {
+        "value": "Construtora",
+        "label": "Construção Civil"
+      },
+      {
+        "value": "Tecnologia",
+        "label": "Tecnologia/Software"
+      },
+      {
+        "value": "Servicos_Financeiros",
+        "label": "Serviços Financeiros"
+      },
+      {
+        "value": "Saude",
+        "label": "Saúde/Medicina"
+      },
+      {
+        "value": "Educacao",
+        "label": "Educação"
+      },
+      {
+        "value": "Servico_Publico",
+        "label": "Serviço Público"
+      },
+      {
+        "value": "Varejo",
+        "label": "Varejo"
+      },
+      {
+        "value": "Outros",
+        "label": "Outros"
+      }
+    ],
+    "razoes": [
+      {
+        "value": "Implantacao",
+        "label": "Implantação de Negócio"
+      },
+      {
+        "value": "Ampliacao",
+        "label": "Ampliação/Expansão"
+      },
+      {
+        "value": "Giro",
+        "label": "Capital de Giro"
+      },
+      {
+        "value": "Financiamento_Ativo",
+        "label": "Financiamento de Ativo"
+      },
+      {
+        "value": "Modernizacao_Tecnologia",
+        "label": "Modernização/Tecnologia"
+      },
+      {
+        "value": "Aquisicao",
+        "label": "Aquisição de Empresa"
+      },
+      {
+        "value": "Safra_Agro",
+        "label": "Safra/Agronegócio"
+      },
+      {
+        "value": "Outros",
+        "label": "Outros"
+      }
+    ],
+    "garantias": [
+      {
+        "value": "Imovel",
+        "label": "Imóvel"
+      },
+      {
+        "value": "Veiculo",
+        "label": "Veículo"
+      },
+      {
+        "value": "Equipamento",
+        "label": "Equipamento"
+      },
+      {
+        "value": "Recebiveis",
+        "label": "Recebíveis"
+      },
+      {
+        "value": "CartaFianca",
+        "label": "Carta Fiança"
+      },
+      {
+        "value": "Estoque",
+        "label": "Estoque"
+      },
+      {
+        "value": "Nenhuma",
+        "label": "Sem garantia específica"
+      },
+      {
+        "value": "NaoSei",
+        "label": "Não sei informar"
+      }
+    ],
+    "tipo_imovel": [
+      {
+        "value": "Residencial",
+        "label": "Residencial"
+      },
+      {
+        "value": "Comercial",
+        "label": "Comercial"
+      },
+      {
+        "value": "Rural",
+        "label": "Rural"
+      },
+      {
+        "value": "Terreno",
+        "label": "Terreno"
+      }
+    ],
+    "como_chegou": [
+      {
+        "value": "instagram",
+        "label": "Instagram"
+      },
+      {
+        "value": "google",
+        "label": "Google/Pesquisa"
+      },
+      {
+        "value": "linkedin",
+        "label": "LinkedIn"
+      },
+      {
+        "value": "facebook",
+        "label": "Facebook"
+      },
+      {
+        "value": "youtube",
+        "label": "YouTube"
+      },
+      {
+        "value": "whatsapp",
+        "label": "WhatsApp"
+      },
+      {
+        "value": "site",
+        "label": "Site da empresa"
+      },
+      {
+        "value": "indicacao",
+        "label": "Indicação"
+      },
+      {
+        "value": "eventos",
+        "label": "Eventos"
+      },
+      {
+        "value": "outros",
+        "label": "Outros"
+      }
+    ]
+  },
+  "configuracao": {
+    "webhook_url": "https://2n8n.ominicrm.com/webhook/650b310d-cd0b-465a-849d-7c7a3991572e",
+    "ultima_atualizacao": "2025-08-20T15:58:46.754169"
+  }
+}

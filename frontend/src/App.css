@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Paleta Investiza baseada na logo */
+  --investiza-black: #000000;
+  --investiza-dark: #0a0a0a;
+  --investiza-card: #1a1a1a;
+  --investiza-border: #2a2a2a;
+  --investiza-gold: #d4af37;
+  --investiza-gold-light: #f4d03f;
+  --investiza-gold-dark: #b8941f;
+  --investiza-white: #ffffff;
+  --investiza-gray: #a0a0a0;
+  --investiza-gray-light: #d0d0d0;
+  --investiza-success: #27ae60;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--investiza-black);
+  color: var(--investiza-white);
+  line-height: 1.6;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Logo Investiza */
+.investiza-logo {
+  max-height: 60px;
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+/* Conquista Animation - Melhor posicionamento */
+.conquista-animation {
+  animation: conquista-bounce 2s ease-out;
+  transform-origin: center;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: linear-gradient(135deg, var(--investiza-gold), var(--investiza-gold-light)) !important;
+  color: var(--investiza-black) !important;
+}
+
+@keyframes conquista-bounce {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3) translateY(30px);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1) translateY(-10px);
+  }
+  20% {
+    transform: translate(-50%, -50%) scale(1) translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9) translateY(-10px);
+  }
+}
+
+/* Progress Bar Styling - Cores Investiza */
+[data-radix-progress-root] {
+  background-color: var(--investiza-border) !important;
+}
+
+[data-radix-progress-indicator] {
+  background: linear-gradient(90deg, var(--investiza-gold-dark) 0%, var(--investiza-gold) 100%) !important;
+  transition: transform 0.5s ease-in-out !important;
+}
+
+/* Custom Button Hover Effects */
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Botões Primários - Dourado Investiza */
+.btn-investiza-primary {
+  background: linear-gradient(135deg, var(--investiza-gold), var(--investiza-gold-light)) !important;
+  color: var(--investiza-black) !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+
+.btn-investiza-primary:hover {
+  background: linear-gradient(135deg, var(--investiza-gold-dark), var(--investiza-gold)) !important;
+  color: var(--investiza-black) !important;
+}
+
+/* Cards - Fundo escuro Investiza */
+.card-investiza {
+  background-color: var(--investiza-card) !important;
+  border-color: var(--investiza-border) !important;
+  color: var(--investiza-white) !important;
+}
+
+/* Inputs - Estilo Investiza */
+.input-investiza {
+  background-color: var(--investiza-dark) !important;
+  border-color: var(--investiza-border) !important;
+  color: var(--investiza-white) !important;
+}
+
+.input-investiza:focus {
+  border-color: var(--investiza-gold) !important;
+  box-shadow: 0 0 0 1px var(--investiza-gold) !important;
+}
+
+/* Badge Hover Effect */
+[data-badge] {
+  transition: all 0.2s ease;
+}
+
+[data-badge]:hover {
+  transform: scale(1.05);
+}
+
+/* Card Hover Effect */
+[data-card] {
+  transition: all 0.3s ease;
+  background-color: var(--investiza-card) !important;
+  border-color: var(--investiza-border) !important;
+}
+
+[data-card]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(212, 175, 55, 0.1), 0 10px 10px -5px rgba(212, 175, 55, 0.05);
+  border-color: var(--investiza-gold) !important;
+}
+
+/* Smooth transitions for step changes */
+.step-content {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading spinner */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+  border-color: var(--investiza-gold) var(--investiza-border) var(--investiza-border) var(--investiza-border) !important;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--investiza-gold);
+  outline-offset: 2px;
+}
+
+/* Stepper active state */
+.stepper-active {
+  background: linear-gradient(135deg, var(--investiza-gold) 0%, var(--investiza-gold-light) 100%);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  color: var(--investiza-black) !important;
+}
+
+.stepper-completed {
+  background: linear-gradient(135deg, var(--investiza-success) 0%, #2ecc71 100%);
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+/* Summary cards */
+.summary-section {
+  border-left: 4px solid var(--investiza-gold);
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-section.success {
+  border-left-color: var(--investiza-success);
+}
+
+.summary-section.warning {
+  border-left-color: var(--investiza-gold-light);
+}
+
+.summary-section.error {
+  border-left-color: #e74c3c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .stepper-container {
+    padding: 0 1rem;
+  }
+  
+  .text-3xl {
+    font-size: 1.875rem;
+  }
+
+  .investiza-logo {
+    max-height: 40px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--investiza-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--investiza-gold);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--investiza-gold-light);
+}
