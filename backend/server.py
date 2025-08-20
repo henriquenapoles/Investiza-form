@@ -1,7 +1,8 @@
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Optional
 import os
@@ -1233,27 +1234,31 @@ async def debug_webhook_test():
         }
 
 # Configuração para servir arquivos estáticos do frontend
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
-import os
-
-# Verificar se o diretório de arquivos estáticos existe
 static_dir = "/app/static"
 if os.path.exists(static_dir):
     # Servir arquivos estáticos do frontend
     app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
-    # Servir o index.html na rota raiz
-    @app.get("/")
-    async def serve_frontend():
-        return FileResponse('/app/static/index.html')
+# Servir o index.html na rota raiz
+@app.get("/")
+async def serve_frontend():
+    static_dir = "/app/static"
+    if os.path.exists(f"{static_dir}/index.html"):
+        return FileResponse(f'{static_dir}/index.html')
+    else:
+        return {"message": "Frontend not found", "static_dir": static_dir}
 
-    # Catch-all para rotas do frontend (SPA)
-    @app.get("/{full_path:path}")
-    async def serve_spa(full_path: str):
-        if full_path.startswith("api/"):
-            raise HTTPException(status_code=404, detail="API endpoint not found")
-        return FileResponse('/app/static/index.html')
+# Catch-all para rotas do frontend (SPA) - deve ser a ÚLTIMA rota
+@app.get("/{full_path:path}")
+async def serve_spa(full_path: str):
+    if full_path.startswith("api/"):
+        raise HTTPException(status_code=404, detail="API endpoint not found")
+    
+    static_dir = "/app/static"
+    if os.path.exists(f"{static_dir}/index.html"):
+        return FileResponse(f'{static_dir}/index.html')
+    else:
+        return {"message": "Frontend not found", "static_dir": static_dir, "path": full_path}
 
 if __name__ == "__main__":
     import uvicorn
