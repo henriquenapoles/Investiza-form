@@ -1235,9 +1235,10 @@ async def debug_webhook_test():
 
 # Configuração para servir arquivos estáticos do frontend
 static_dir = "/app/static"
-if os.path.exists(static_dir):
-    # Servir arquivos estáticos do frontend
-    app.mount("/static", StaticFiles(directory=static_dir), name="static")
+static_files_dir = "/app/static/static"  # Os arquivos CSS/JS estão aqui
+if os.path.exists(static_files_dir):
+    # Servir arquivos estáticos do frontend (CSS, JS)
+    app.mount("/static", StaticFiles(directory=static_files_dir), name="static")
 
 # Servir o index.html na rota raiz
 @app.get("/")
