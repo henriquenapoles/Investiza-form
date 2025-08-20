@@ -1190,48 +1190,7 @@ async def root():
         }
     }
 
-# Debug webhook endpoint
-@app.post("/api/debug/webhook-test")
-async def debug_webhook_test():
-    """
-    Debug endpoint para testar conectividade do webhook
-    """
-    import requests
-    
-    config = load_fundos_config()
-    webhook_url = config.get("configuracao", {}).get("webhook_url", "")
-    
-    if not webhook_url:
-        return {"error": "Webhook URL não configurado"}
-    
-    test_payload = {
-        "test": True,
-        "source": "investiza-debug-test",
-        "timestamp": datetime.utcnow().isoformat(),
-        "message": "Teste de conectividade do webhook"
-    }
-    
-    try:
-        response = requests.post(
-            webhook_url,
-            json=test_payload,
-            headers={'Content-Type': 'application/json'},
-            timeout=10
-        )
-        
-        return {
-            "webhook_url": webhook_url,
-            "status_code": response.status_code,
-            "response_text": response.text,
-            "success": response.status_code >= 200 and response.status_code < 300
-        }
-        
-    except Exception as e:
-        return {
-            "webhook_url": webhook_url,
-            "error": str(e),
-            "success": False
-        }
+
 
 # Configuração para servir arquivos estáticos do frontend
 static_dir = "/app/static"
@@ -1248,6 +1207,15 @@ async def serve_frontend():
         return FileResponse(f'{static_dir}/index.html')
     else:
         return {"message": "Frontend not found", "static_dir": static_dir}
+
+# Servir a logo especificamente
+@app.get("/investiza-logo.png")
+async def serve_logo():
+    logo_path = "/app/static/investiza-logo.png"
+    if os.path.exists(logo_path):
+        return FileResponse(logo_path)
+    else:
+        raise HTTPException(status_code=404, detail="Logo not found")
 
 # Catch-all para rotas do frontend (SPA) - deve ser a ÚLTIMA rota
 @app.get("/{full_path:path}")

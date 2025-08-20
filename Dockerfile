@@ -1,5 +1,5 @@
 # Dockerfile para EasyPanel
-FROM node:18-alpine AS frontend-build
+FROM node:20-alpine AS frontend-build
 
 # Build do Frontend
 WORKDIR /app/frontend
@@ -19,7 +19,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar arquivos do backend
 COPY backend/ ./
-COPY fundos_criterios.json ./
+COPY fundos_criterios.json ./fundos_criterios.json
 
 # Copiar frontend buildado
 COPY --from=frontend-build /app/frontend/build ./static/
