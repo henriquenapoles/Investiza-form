@@ -21,7 +21,7 @@ from pathlib import Path
 load_dotenv()
 
 # Path para arquivo de configuração dos fundos
-FUNDOS_CONFIG_PATH = Path(__file__).parent.parent / "fundos_criterios.json"
+FUNDOS_CONFIG_PATH = Path(__file__).parent / "fundos_criterios.json"
 
 # Funções para manipular arquivo JSON
 def load_fundos_config():

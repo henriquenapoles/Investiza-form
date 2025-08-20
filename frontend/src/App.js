@@ -97,6 +97,7 @@ const AdminLogin = ({ onLogin }) => {
     const [showAddFundo, setShowAddFundo] = useState(false);
     const [tempFundo, setTempFundo] = useState({});
     const [webhookLogs, setWebhookLogs] = useState([]); // Logs do webhook
+    
 
     // Estados para critérios
     const [selectedFundo, setSelectedFundo] = useState('');
