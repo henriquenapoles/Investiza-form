@@ -21,16 +21,34 @@ from pathlib import Path
 load_dotenv()
 
 # Path para arquivo de configuração dos fundos
-FUNDOS_CONFIG_PATH = Path(__file__).parent / "fundos_criterios.json"
+# Tentar múltiplos caminhos para o arquivo de configuração
+POSSIBLE_PATHS = [
+    Path(__file__).parent / "fundos_criterios.json",  # /app/fundos_criterios.json
+    Path(__file__).parent.parent / "fundos_criterios.json",  # /fundos_criterios.json
+    Path("/app/fundos_criterios.json"),  # Caminho absoluto
+]
+
+FUNDOS_CONFIG_PATH = None
+for path in POSSIBLE_PATHS:
+    if path.exists():
+        FUNDOS_CONFIG_PATH = path
+        break
+
+if FUNDOS_CONFIG_PATH is None:
+    FUNDOS_CONFIG_PATH = POSSIBLE_PATHS[0]  # Fallback
 
 # Funções para manipular arquivo JSON
 def load_fundos_config():
     """Carrega configuração dos fundos do arquivo JSON"""
     try:
+        logger.info(f"Tentando carregar arquivo de configuração: {FUNDOS_CONFIG_PATH}")
         with open(FUNDOS_CONFIG_PATH, 'r', encoding='utf-8') as f:
-            return json.load(f)
+            config = json.load(f)
+            logger.info(f"Arquivo carregado com sucesso. Fundos encontrados: {len(config.get('fundos', {}))}")
+            return config
     except FileNotFoundError:
-        logger.error("Arquivo fundos_criterios.json não encontrado")
+        logger.error(f"Arquivo fundos_criterios.json não encontrado em: {FUNDOS_CONFIG_PATH}")
+        logger.error(f"Caminhos testados: {[str(p) for p in POSSIBLE_PATHS]}")
         return {"fundos": {}, "opcoes_formulario": {}, "configuracao": {}}
     except json.JSONDecodeError as e:
         logger.error(f"Erro ao decodificar JSON: {e}")
