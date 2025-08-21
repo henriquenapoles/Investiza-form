@@ -476,7 +476,7 @@ const AdminLogin = ({ onLogin }) => {
     }
 
     try {
-      const response = await fetch(`/api/admin/fundos/`, {
+      const response = await fetch(`/api/admin/fundos`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-API-Key': adminKey },
         body: JSON.stringify({ 
