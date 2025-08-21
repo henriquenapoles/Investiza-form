@@ -609,6 +609,7 @@ const AdminLogin = ({ onLogin }) => {
   };
 
   const renderAddFundoModal = () => {
+    console.log('renderAddFundoModal called, showAddFundo:', showAddFundo);
     if (!showAddFundo) return null;
 
     return (
@@ -1245,7 +1246,11 @@ const AdminLogin = ({ onLogin }) => {
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-slate-200">Gestão de Fundos</h2>
         <div className="space-x-2">
-          <Button onClick={() => setShowAddFundo(true)} className="bg-green-600 hover:bg-green-700">
+          <Button onClick={() => {
+            console.log('Clicando em Novo Fundo...');
+            setShowAddFundo(true);
+            console.log('showAddFundo definido como true');
+          }} className="bg-green-600 hover:bg-green-700">
             <Plus className="w-4 h-4 mr-2" />
             Novo Fundo
           </Button>
@@ -2510,14 +2515,7 @@ const FormularioInvestiza = () => {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="w-full max-w-2xl">
-        {/* Logo Investiza */}
-        <div className="text-center mb-6">
-          <img 
-            src="/investiza-logo.png" 
-            alt="Investiza Capital & Negócios" 
-            className="investiza-logo mx-auto"
-          />
-        </div>
+
 
         {/* Progress Stepper */}
         <div className="mb-8">
