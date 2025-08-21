@@ -608,151 +608,7 @@ const AdminLogin = ({ onLogin }) => {
     );
   };
 
-  const renderAddFundoModal = () => {
-    console.log('renderAddFundoModal called, showAddFundo:', showAddFundo);
-    if (!showAddFundo) return null;
 
-    return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <Card className="w-full max-w-2xl bg-gray-800 border-gray-700 max-h-[80vh] overflow-y-auto">
-          <CardHeader>
-            <CardTitle className="text-slate-200">➕ Adicionar Novo Fundo</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <Label className="text-slate-300">ID do Fundo *</Label>
-              <Input
-                value={tempFundo.id || ''}
-                onChange={(e) => setTempFundo(prev => ({ ...prev, id: e.target.value.toUpperCase().replace(/[^A-Z0-9_]/g, '') }))}
-                className="bg-gray-700 border-gray-600 text-slate-200"
-                placeholder="Ex: NOVO_FUNDO_2024"
-              />
-              <p className="text-xs text-slate-400 mt-1">Apenas letras maiúsculas, números e underscore</p>
-            </div>
-            
-            <div>
-              <Label className="text-slate-300">Nome do Fundo *</Label>
-              <Input
-                value={tempFundo.nome || ''}
-                onChange={(e) => setTempFundo(prev => ({ ...prev, nome: e.target.value }))}
-                className="bg-gray-700 border-gray-600 text-slate-200"
-                placeholder="Ex: Banco XYZ - Crédito Empresarial"
-              />
-            </div>
-            
-            <div>
-              <Label className="text-slate-300">Tipo *</Label>
-              <select
-                value={tempFundo.tipo || ''}
-                onChange={(e) => setTempFundo(prev => ({ ...prev, tipo: e.target.value }))}
-                className="w-full p-2 bg-gray-700 border border-gray-600 rounded text-slate-200"
-              >
-                <option value="">Selecione o tipo</option>
-                <option value="constitucional">Constitucional</option>
-                <option value="privado">Privado</option>
-                <option value="desenvolvimento">Desenvolvimento</option>
-                <option value="pf">Pessoa Física</option>
-              </select>
-            </div>
-
-            <div>
-              <Label className="text-slate-300">Descrição</Label>
-              <Input
-                value={tempFundo.descricao || ''}
-                onChange={(e) => setTempFundo(prev => ({ ...prev, descricao: e.target.value }))}
-                className="bg-gray-700 border-gray-600 text-slate-200"
-                placeholder="Breve descrição do fundo"
-              />
-            </div>
-
-            <div>
-              <Label className="text-slate-300">Regiões Atendidas</Label>
-              <Input
-                value={(tempFundo.regioes || []).join(', ')}
-                onChange={(e) => {
-                  const valor = e.target.value.trim();
-                  const regioes = valor ? valor.split(',').map(r => r.trim()).filter(r => r) : [];
-                  setTempFundo(prev => ({ ...prev, regioes }));
-                }}
-                className="bg-gray-700 border-gray-600 text-slate-200"
-                placeholder="Ex: Nordeste, Sudeste, Nacional"
-              />
-              <p className="text-xs text-slate-400 mt-1">Separadas por vírgula. Use "Nacional" para todo o Brasil.</p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <Label className="text-slate-300">Faturamento Mínimo (milhões R$)</Label>
-                <Input
-                  type="number"
-                  value={tempFundo.min_faturamento || ''}
-                  onChange={(e) => setTempFundo(prev => ({ ...prev, min_faturamento: e.target.value ? parseFloat(e.target.value) : null }))}
-                  className="bg-gray-700 border-gray-600 text-slate-200"
-                  placeholder="Ex: 5"
-                />
-              </div>
-              <div>
-                <Label className="text-slate-300">Faturamento Máximo (milhões R$)</Label>
-                <Input
-                  type="number"
-                  value={tempFundo.max_faturamento || ''}
-                  onChange={(e) => setTempFundo(prev => ({ ...prev, max_faturamento: e.target.value ? parseFloat(e.target.value) : null }))}
-                  className="bg-gray-700 border-gray-600 text-slate-200"
-                  placeholder="Ex: 300 (deixe vazio se sem limite)"
-                />
-              </div>
-            </div>
-
-            <div>
-              <Label className="text-slate-300">Segmentos Excluídos</Label>
-              <Input
-                value={(tempFundo.segmentos_excluidos || []).join(', ')}
-                onChange={(e) => {
-                  const valor = e.target.value.trim();
-                  const segmentos = valor ? valor.split(',').map(s => s.trim()).filter(s => s) : [];
-                  setTempFundo(prev => ({ ...prev, segmentos_excluidos: segmentos }));
-                }}
-                className="bg-gray-700 border-gray-600 text-slate-200"
-                placeholder="Ex: Servico_Publico, Outros"
-              />
-              <p className="text-xs text-slate-400 mt-1">Segmentos que não podem acessar este fundo</p>
-            </div>
-
-            <div className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                id="ativo"
-                checked={tempFundo.ativo !== false}
-                onChange={(e) => setTempFundo(prev => ({ ...prev, ativo: e.target.checked }))}
-                className="rounded"
-              />
-              <Label htmlFor="ativo" className="text-slate-300">Fundo ativo</Label>
-            </div>
-
-            <div className="flex justify-end space-x-2 pt-4">
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setShowAddFundo(false);
-                  setTempFundo({});
-                }}
-                className="border-gray-600 text-gray-400"
-              >
-                Cancelar
-              </Button>
-              <Button
-                onClick={handleAddFundo}
-                disabled={!tempFundo.id || !tempFundo.nome || !tempFundo.tipo}
-                className="bg-green-600 hover:bg-green-700 disabled:opacity-50"
-              >
-                ➕ Criar Fundo
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  };
 
   const renderCriteriosTab = () => {
     return (
@@ -1410,7 +1266,82 @@ const AdminLogin = ({ onLogin }) => {
         {renderEditModal()}
         
         {/* Add Fundo Modal */}
-        {renderAddFundoModal()}
+        {showAddFundo && (
+          <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" style={{zIndex: 9999}}>
+            <div className="bg-gray-800 rounded-lg p-6 w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto border border-gray-600">
+              <h2 className="text-xl font-bold text-white mb-4">➕ Adicionar Novo Fundo</h2>
+              
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-gray-300 mb-2">ID do Fundo *</label>
+                  <input
+                    type="text"
+                    value={tempFundo.id || ''}
+                    onChange={(e) => setTempFundo(prev => ({ ...prev, id: e.target.value.toUpperCase().replace(/[^A-Z0-9_]/g, '') }))}
+                    className="w-full p-2 bg-gray-700 border border-gray-600 rounded text-white"
+                    placeholder="Ex: NOVO_FUNDO_2024"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-gray-300 mb-2">Nome do Fundo *</label>
+                  <input
+                    type="text"
+                    value={tempFundo.nome || ''}
+                    onChange={(e) => setTempFundo(prev => ({ ...prev, nome: e.target.value }))}
+                    className="w-full p-2 bg-gray-700 border border-gray-600 rounded text-white"
+                    placeholder="Ex: Banco XYZ - Crédito Empresarial"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-gray-300 mb-2">Tipo *</label>
+                  <select
+                    value={tempFundo.tipo || ''}
+                    onChange={(e) => setTempFundo(prev => ({ ...prev, tipo: e.target.value }))}
+                    className="w-full p-2 bg-gray-700 border border-gray-600 rounded text-white"
+                  >
+                    <option value="">Selecione o tipo</option>
+                    <option value="constitucional">Constitucional</option>
+                    <option value="privado">Privado</option>
+                    <option value="desenvolvimento">Desenvolvimento</option>
+                    <option value="pf">Pessoa Física</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-gray-300 mb-2">Descrição</label>
+                  <input
+                    type="text"
+                    value={tempFundo.descricao || ''}
+                    onChange={(e) => setTempFundo(prev => ({ ...prev, descricao: e.target.value }))}
+                    className="w-full p-2 bg-gray-700 border border-gray-600 rounded text-white"
+                    placeholder="Breve descrição do fundo"
+                  />
+                </div>
+              </div>
+              
+              <div className="flex justify-end space-x-4 mt-6">
+                <button
+                  onClick={() => {
+                    setShowAddFundo(false);
+                    setTempFundo({});
+                  }}
+                  className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded"
+                >
+                  Cancelar
+                </button>
+                <button
+                  onClick={handleAddFundo}
+                  disabled={!tempFundo.id || !tempFundo.nome || !tempFundo.tipo}
+                  className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded disabled:opacity-50"
+                >
+                  ➕ Criar Fundo
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
