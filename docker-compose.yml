@@ -3,7 +3,7 @@ services:
   investiza-form:
     build: .
     ports:
-      - "9086:8000"
+      - "8000:8000"
     environment:
       - MONGO_URL=mongodb://localhost:27017
       - CORS_ORIGINS=*
@@ -11,8 +11,7 @@ services:
     volumes:
       - ./fundos_criterios.json:/app/fundos_criterios.json
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8000/ || exit 1"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
