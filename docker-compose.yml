@@ -2,33 +2,16 @@ version: '3.8'
 services:
   investiza-form:
     build: .
+    ports:
+      - "8000:8000"
     environment:
       - MONGO_URL=mongodb://localhost:27017
       - CORS_ORIGINS=*
     restart: unless-stopped
     volumes:
       - ./fundos_criterios.json:/app/fundos_criterios.json
-    networks:
-      - traefik-public
-      - default
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.investiza.rule=Host(`app.investiza.com.br`)"
-      - "traefik.http.routers.investiza.entrypoints=websecure"
-      - "traefik.http.routers.investiza.tls.certresolver=letsencrypt"
-      - "traefik.http.services.investiza.loadbalancer.server.port=8000"
-      - "traefik.http.routers.investiza-http.rule=Host(`app.investiza.com.br`)"
-      - "traefik.http.routers.investiza-http.entrypoints=web"
-      - "traefik.http.routers.investiza-http.middlewares=redirect-to-https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8000/ || exit 1"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
-
-networks:
-  traefik-public:
-    external: true
